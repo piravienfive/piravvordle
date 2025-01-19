@@ -22,3 +22,14 @@ body{
     display: flex;
     justify-content: center;
 }
+button{
+    color: darkgreen;
+    border: 5px solid darkgreen;
+    width: 5%;
+    height: 95px;
+    margin: 5px 10px;
+    font-size: 25px;
+    cursor: pointer;
+    display: inline-block;
+
+}
