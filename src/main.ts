@@ -67,8 +67,10 @@ function handler5 (event: Event) {
   const currentValue: string = target.value
   if (wordArr[4]) {wordArr[4].innerText = currentValue
   buttons[currentRow-1]?.focus()
-
   console.log(wordArr[4].textContent)}
+
+  if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent ){
+    buttons[currentRow-1].disabled = false}
 }
 
 wordArr[0]?.addEventListener('input', handler1)
