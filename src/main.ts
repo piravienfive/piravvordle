@@ -35,39 +35,47 @@ function handler1 (event: Event) {
   let target = event.target as HTMLInputElement
   let currentValue: string = target.value
   if (wordArr[0]) {wordArr[0].innerText = currentValue
-  
+  wordArr[1]?.focus()
   console.log(wordArr[0].textContent)}
 }
 function handler2 (event: Event) {
   let target = event.target as HTMLInputElement
   let currentValue: string = target.value
   if (wordArr[1]) { wordArr[1].innerText = currentValue
+  wordArr[2]?.focus()
+
   console.log(wordArr[1].textContent)}
 }
 function handler3 (event: Event) {
   const target = event.target as HTMLInputElement
   const currentValue: string = target.value
   if (wordArr[2]) { wordArr[2].innerText = currentValue
+  wordArr[3]?.focus()
+
   console.log(wordArr[2].textContent)}
 }
 function handler4 (event: Event) {
   const target = event.target as HTMLInputElement
   const currentValue: string = target.value
   if (wordArr[3]) {wordArr[3].innerText = currentValue
+  wordArr[4]?.focus()
+
   console.log(wordArr[3].textContent)}
 }
 function handler5 (event: Event) {
   const target = event.target as HTMLInputElement
   const currentValue: string = target.value
   if (wordArr[4]) {wordArr[4].innerText = currentValue
+  buttons[currentRow-1]?.focus()
+
   console.log(wordArr[4].textContent)}
 }
 
-wordArr[0].addEventListener('input', handler1)
-wordArr[1].addEventListener('input', handler2)
-wordArr[2].addEventListener('input', handler3)
-wordArr[3].addEventListener('input', handler4)
-wordArr[4].addEventListener('input', handler5)
+wordArr[0]?.addEventListener('input', handler1)
+wordArr[1]?.addEventListener('input', handler2)
+wordArr[2]?.addEventListener('input', handler3)
+wordArr[3]?.addEventListener('input', handler4)
+wordArr[4]?.addEventListener('input', handler5)
 
 
 if(!tryButton1 || !tryButton2 || !tryButton3 || !tryButton4 || !tryButton5){
