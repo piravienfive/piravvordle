@@ -77,11 +77,11 @@ if(!tryButton1 || !tryButton2 || !tryButton3 || !tryButton4 || !tryButton5){
 tryButton1.addEventListener('click', () => {
   console.log('start')
 
-  let l1 = letter1.textContent
-  let l2 = letter2.textContent
-  let l3 = letter3.textContent
-  let l4 = letter4.textContent
-  let l5 = letter5.textContent
+  let l1 = wordArr[0].textContent
+  let l2 = wordArr[1].textContent
+  let l3 = wordArr[2].textContent
+  let l4 = wordArr[3].textContent
+  let l5 = wordArr[4].textContent
   
   if(!l1 || !l2 || !l3|| !l4|| !l5){
     throw new Error('I am trying to avoid null???');
