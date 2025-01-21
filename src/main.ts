@@ -1,4 +1,5 @@
 import '../styles/styles.scss'
+import {multiBackspace} from './backspace.ts' 
 
 
 // let boxes = {
@@ -124,33 +125,43 @@ function handler5 (event: Event) {
 //   }
 // }
 
-wordArr[0]?.addEventListener('keydown',(pressed) => {
-  if(pressed.key === 'Backspace' && wordArr[0]?.value == ''){
-    wordArr[0]?.focus()
-  }
-})
+// wordArr[0]?.addEventListener('keydown',(pressed) => {
+//   if(pressed.key === 'Backspace' && wordArr[0]?.value == ''){
+//     wordArr[0]?.focus()
+//   }
+// })
 
-wordArr[1]?.addEventListener('keydown',(pressed) => {
-  if(pressed.key === 'Backspace' && wordArr[1]?.value == ''){
-    wordArr[0]?.focus()
-  }
-})
-wordArr[2]?.addEventListener('keydown',(pressed) => {
-  if(pressed.key === 'Backspace' && wordArr[2]?.value == ''){
-    wordArr[1]?.focus()
-  }
-})
-wordArr[3]?.addEventListener('keydown',(pressed) => {
-  if(pressed.key === 'Backspace' && wordArr[3]?.value == ''){
-    wordArr[2]?.focus()
-  }
-})
+// backspace(wordArr, 0, 0)
+// backspace(wordArr, 1)
+// backspace(wordArr, 2)
+// backspace(wordArr, 3)
+// backspace(wordArr, 4)
 
-wordArr[4]?.addEventListener('keydown',(pressed) => {
-  if(pressed.key === 'Backspace' && wordArr[4]?.value == ''){
-    wordArr[3]?.focus()
-  }
-})
+multiBackspace(wordArr, 0)
+
+
+
+// wordArr[1]?.addEventListener('keydown',(pressed) => {
+//   if(pressed.key === 'Backspace' && wordArr[1]?.value == ''){
+//     wordArr[0]?.focus()
+//   }
+// })
+// wordArr[2]?.addEventListener('keydown',(pressed) => {
+//   if(pressed.key === 'Backspace' && wordArr[2]?.value == ''){
+//     wordArr[1]?.focus()
+//   }
+// })
+// wordArr[3]?.addEventListener('keydown',(pressed) => {
+//   if(pressed.key === 'Backspace' && wordArr[3]?.value == ''){
+//     wordArr[2]?.focus()
+//   }
+// })
+
+// wordArr[4]?.addEventListener('keydown',(pressed) => {
+//   if(pressed.key === 'Backspace' && wordArr[4]?.value == ''){
+//     wordArr[3]?.focus()
+//   }
+// })
 
 
 
@@ -220,8 +231,7 @@ tryButton1.addEventListener('click', () => {
   wordArr[3].addEventListener('input', handler4)
   wordArr[4].addEventListener('input', handler5)
 
-  wordArr[0]?.focus()
-
+  multiBackspace(wordArr, 0)
   console.log('end')
 })
 
@@ -480,8 +490,8 @@ tryButton6.addEventListener('click', () => {
     }
   }
 
-  if (word === mystery){
-    //congrats
+  if (word !== mystery){
+    //loserrr
   }
   currentRow += 1
   tryButton6.disabled = true
