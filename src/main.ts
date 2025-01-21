@@ -124,6 +124,35 @@ function handler5 (event: Event) {
 //   }
 // }
 
+wordArr[0]?.addEventListener('keydown',(pressed) => {
+  if(pressed.key === 'Backspace' && wordArr[0]?.value == ''){
+    wordArr[0]?.focus()
+  }
+})
+
+wordArr[1]?.addEventListener('keydown',(pressed) => {
+  if(pressed.key === 'Backspace' && wordArr[1]?.value == ''){
+    wordArr[0]?.focus()
+  }
+})
+wordArr[2]?.addEventListener('keydown',(pressed) => {
+  if(pressed.key === 'Backspace' && wordArr[2]?.value == ''){
+    wordArr[1]?.focus()
+  }
+})
+wordArr[3]?.addEventListener('keydown',(pressed) => {
+  if(pressed.key === 'Backspace' && wordArr[3]?.value == ''){
+    wordArr[2]?.focus()
+  }
+})
+
+wordArr[4]?.addEventListener('keydown',(pressed) => {
+  if(pressed.key === 'Backspace' && wordArr[4]?.value == ''){
+    wordArr[3]?.focus()
+  }
+})
+
+
 
 
 // wordArr[0]?.addEventListener('input', function(){handler1(event, 0)})
@@ -249,6 +278,9 @@ tryButton2.addEventListener('click', () => {
   wordArr[3].addEventListener('input', handler4)
   wordArr[4].addEventListener('input', handler5)
 
+  wordArr[0]?.focus()
+
+
   console.log('end')
 })
 
@@ -300,6 +332,9 @@ tryButton3.addEventListener('click', () => {
   wordArr[2].addEventListener('input', handler3)
   wordArr[3].addEventListener('input', handler4)
   wordArr[4].addEventListener('input', handler5)
+
+  wordArr[0]?.focus()
+
 
   console.log('end')
 })
@@ -353,6 +388,9 @@ tryButton4.addEventListener('click', () => {
   wordArr[3].addEventListener('input', handler4)
   wordArr[4].addEventListener('input', handler5)
 
+  wordArr[0]?.focus()
+
+
   console.log('end')
 })
 
@@ -403,6 +441,9 @@ tryButton5.addEventListener('click', () => {
   wordArr[2].addEventListener('input', handler3)
   wordArr[3].addEventListener('input', handler4)
   wordArr[4].addEventListener('input', handler5)
+
+  wordArr[0]?.focus()
+
 
   console.log('end')
 })
