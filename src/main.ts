@@ -18,8 +18,9 @@ let tryButton2 = document.querySelector<HTMLButtonElement>('#bb2')
 let tryButton3 = document.querySelector<HTMLButtonElement>('#bb3')
 let tryButton4 = document.querySelector<HTMLButtonElement>('#bb4')
 let tryButton5 = document.querySelector<HTMLButtonElement>('#bb5')
+let tryButton6 = document.querySelector<HTMLButtonElement>('#bb6')
 
-const buttons = [tryButton1, tryButton2, tryButton3, tryButton4, tryButton5]
+const buttons = [tryButton1, tryButton2, tryButton3, tryButton4, tryButton5, tryButton6]
 
 const mystery = 'HILLS'
 
@@ -34,45 +35,102 @@ if (!letter1 || !letter2 || !letter3 || !letter4 || !letter5){
 function handler1 (event: Event) {
   let target = event.target as HTMLInputElement
   let currentValue: string = target.value
-  if (wordArr[0]) {wordArr[0].innerText = currentValue
-  wordArr[1]?.focus()
-  console.log(wordArr[0].textContent)}
+  if (wordArr[0]) {wordArr[0].innerText = currentValue.toUpperCase()
+    wordArr[1]?.focus()
+    console.log(wordArr[0].textContent)
+  }
+  if(wordArr[0]?.textContent == ''){
+    wordArr[0]?.focus()
+  }
+
+  if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
+    buttons[currentRow-1].disabled = false}
+  else{
+    buttons[currentRow-1].disabled = true
+  }
 }
 function handler2 (event: Event) {
   let target = event.target as HTMLInputElement
   let currentValue: string = target.value
-  if (wordArr[1]) { wordArr[1].innerText = currentValue
-  wordArr[2]?.focus()
-
-  console.log(wordArr[1].textContent)}
+  if (wordArr[1]) { wordArr[1].innerText = currentValue.toUpperCase()
+    wordArr[2]?.focus()
+    console.log(wordArr[1].textContent)}
+  if(wordArr[1]?.textContent == ''){
+      wordArr[1]?.focus()
+    }
+  if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
+    buttons[currentRow-1].disabled = false}
+  else{
+    buttons[currentRow-1].disabled = true
+  }
 }
 function handler3 (event: Event) {
   const target = event.target as HTMLInputElement
   const currentValue: string = target.value
-  if (wordArr[2]) { wordArr[2].innerText = currentValue
-  wordArr[3]?.focus()
-
-  console.log(wordArr[2].textContent)}
+  if (wordArr[2]) { wordArr[2].innerText = currentValue.toUpperCase()
+    wordArr[3]?.focus()
+    console.log(wordArr[2].textContent)}
+  if(wordArr[2]?.textContent == ''){
+      wordArr[2]?.focus()
+    }
+  if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
+    buttons[currentRow-1].disabled = false}
+  else{
+    buttons[currentRow-1].disabled = true
+  }
 }
 function handler4 (event: Event) {
   const target = event.target as HTMLInputElement
   const currentValue: string = target.value
-  if (wordArr[3]) {wordArr[3].innerText = currentValue
-  wordArr[4]?.focus()
-
-  console.log(wordArr[3].textContent)}
+  if (wordArr[3]) {wordArr[3].innerText = currentValue.toUpperCase()
+    wordArr[4]?.focus()
+    console.log(wordArr[3].textContent)}
+  if(wordArr[3]?.textContent == ''){
+      wordArr[3]?.focus()
+    }
+  if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
+      buttons[currentRow-1].disabled = false}
+    else{
+      buttons[currentRow-1].disabled = true
+    }
 }
 function handler5 (event: Event) {
   const target = event.target as HTMLInputElement
   const currentValue: string = target.value
-  if (wordArr[4]) {wordArr[4].innerText = currentValue
-  buttons[currentRow-1]?.focus()
-  console.log(wordArr[4].textContent)}
+  if (wordArr[4]) {wordArr[4].innerText = currentValue.toUpperCase()
+    console.log(wordArr[4].textContent)
+    buttons[currentRow-1]?.focus()}
 
-  if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent ){
-    buttons[currentRow-1].disabled = false}
+  if(wordArr[4]?.textContent == ''){
+      wordArr[4]?.focus()
+    }
+
+  if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
+    buttons[currentRow-1].disabled = false
+    buttons[currentRow-1]?.focus()
+  }
+  else{
+    buttons[currentRow-1].disabled = true
+    buttons[currentRow-1]?.focus()
+  }
 }
 
+
+// function backKey (event: Event){
+//   const target = event.target as HTMLInputElement
+//   const currentValue: string = target.value
+//   if(wordArr[4]) {wordArr[4].k === }
+//     wordArr[3]?.focus()
+//   }
+// }
+
+
+
+// wordArr[0]?.addEventListener('input', function(){handler1(event, 0)})
+// wordArr[1]?.addEventListener('input', function(){handler1(event, 1)})
+// wordArr[2]?.addEventListener('input', function(){handler1(event, 2)})
+// wordArr[3]?.addEventListener('input', function(){handler1(event, 3)})
+// wordArr[4]?.addEventListener('input', function(){handler1(event, 4)})
 wordArr[0]?.addEventListener('input', handler1)
 wordArr[1]?.addEventListener('input', handler2)
 wordArr[2]?.addEventListener('input', handler3)
@@ -87,11 +145,11 @@ if(!tryButton1 || !tryButton2 || !tryButton3 || !tryButton4 || !tryButton5){
 tryButton1.addEventListener('click', () => {
   console.log('start')
 
-  let l1 = wordArr[0].textContent
-  let l2 = wordArr[1].textContent
-  let l3 = wordArr[2].textContent
-  let l4 = wordArr[3].textContent
-  let l5 = wordArr[4].textContent
+  let l1 = wordArr[0]?.textContent
+  let l2 = wordArr[1]?.textContent
+  let l3 = wordArr[2]?.textContent
+  let l4 = wordArr[3]?.textContent
+  let l5 = wordArr[4]?.textContent
   
   if(!l1 || !l2 || !l3|| !l4|| !l5){
     throw new Error('I am trying to avoid null???');
@@ -132,6 +190,8 @@ tryButton1.addEventListener('click', () => {
   wordArr[2].addEventListener('input', handler3)
   wordArr[3].addEventListener('input', handler4)
   wordArr[4].addEventListener('input', handler5)
+
+  wordArr[0]?.focus()
 
   console.log('end')
 })
@@ -345,6 +405,51 @@ tryButton5.addEventListener('click', () => {
   wordArr[4].addEventListener('input', handler5)
 
   console.log('end')
+})
+
+tryButton6.addEventListener('click', () => {
+  console.log('start')
+
+  let l1 = wordArr[0].textContent
+  let l2 = wordArr[1].textContent
+  let l3 = wordArr[2].textContent
+  let l4 = wordArr[3].textContent
+  let l5 = wordArr[4].textContent
+  
+  if(!l1 || !l2 || !l3|| !l4|| !l5){
+    throw new Error('I am trying to avoid null???');
+  }
+  
+  let word = l1 + l2 + l3 + l4 + l5
+  let mysArr = mystery.split('')
+
+  for(let i = 0; i < wordArr.length; i++){
+    if (word.charAt(i) == mystery.charAt(i)){
+      wordArr[i].style.backgroundColor = "green";
+      wordArr[i].disabled = true;
+    }
+    else if(mysArr.includes(word.charAt(i))){
+      console.log(mysArr)
+      wordArr[i].style.backgroundColor = "yellow";
+      wordArr[i].disabled = true;
+    }
+    else {
+      wordArr[i].style.backgroundColor = "red";
+      wordArr[i].disabled = true;
+    }
+  }
+
+  if (word === mystery){
+    //congrats
+  }
+  currentRow += 1
+  tryButton6.disabled = true
+
+  console.log(wordArr)
+
+  console.log('end')
+
+
 })
 
 
