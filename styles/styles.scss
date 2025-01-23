@@ -1,7 +1,9 @@
 body{
     background-color: #C1E1C1;
 }
-
+.container{
+    position: relative;
+}
 .pageTitle {
     text-align: center;
     font-size: 80px;
@@ -16,11 +18,13 @@ body{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
     border: 5px solid #ffd1dc;
+    
 }
 
 .letterBoxes{
     display: flex;
     justify-content: center;
+    position: relative;
 }
 button{
     color: darkgreen;
@@ -32,5 +36,152 @@ button{
     font-weight: 200;
     cursor: pointer;
     display: inline-block;
+    position: relative
 
 }
+
+// .finishPopUp{
+//     // display: none;
+//         position: absolute;
+//         top: 2%;
+//         left: 29%;
+//         width: 40%;
+//         height: 90%;
+//         z-index:99;
+//         border: 10px solid darkgreen;
+//         background-color: green;
+//         opacity: 90%;
+//         // display: flex;
+//         // flex-direction: column;
+//         // justify-content: space-between;
+
+//         h5{
+//             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+//             padding: 10px;
+//             font-size: 80px;
+//             border: 10px solid gold;
+//             text-align: center;
+//             position: relative;
+//         }
+//     }
+
+// // .popup{
+// //     // display: flex;
+// //     border: 10px solid purple;
+// //     padding: 5px;
+// //     display: flex;
+// //     flex-direction: column;
+// //     // justify-content: center;
+// //     // text-align: center;
+//     // h5{
+//     //     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+//     //     font-size: 80px;
+//     //     border: 10px solid gold;
+//     //     text-align: center;
+//     //     display: flex;
+//     //     justify-content: center;
+
+//     // }
+// // }
+
+// .completedMessages {
+//     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+//     // font-size: 70px;
+//     border: 10px solid gold;
+//     justify-content: center;
+//     flex-direction: column;
+//     display: flex;
+//     position: absolute;
+
+//     .messageWin{
+//         border: 10px solid gold;
+//         display: none
+//     }
+//      .messageLoss{
+//         border: 10px solid red;
+//      }
+// }
+
+
+.lossPop {
+    border: solid 5px darkgreen;
+    width: 45%;
+    margin: 0% 27.5% 0% 27.5%;
+    display: none;
+    height: 450px;
+    z-index: 99;
+    position: absolute;
+    top: 25%;
+    left: 0%;
+    background-color: green;
+    opacity: 90%;
+    vertical-align: top;
+
+}
+
+.lossMess1{
+
+    font-size: 70px;
+    top: -30%;
+    left: 17%;
+    position: absolute;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.lossMess2 {
+
+    font-size: 60px;
+    top: 20%;
+    left: 22%;
+    position: absolute;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.lossMess3 {
+    font-size: 80px;
+    top: 30%;
+    left: 31%;
+    position: absolute;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.winPop {
+        border: solid 5px darkgreen;
+        width: 45%;
+        margin: 0% 27.5% 0% 27.5%;
+        display: none;
+        height: 450px;
+        z-index: 99;
+        position: absolute;
+        top: 25%;
+        left: 0%;
+        background-color: red;
+        opacity: 85%;
+        vertical-align: top;
+    
+    }
+    
+.winMess1{
+    
+        font-size: 70px;
+        top: -27%;
+        left: 17%;
+        position: absolute;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+.playAgain{
+    position: absolute;
+    top: 60%;
+    left: 35%;
+    width: 30%;
+    height: 20%;
+    background-color: pink;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+
+
+    
+
+}
+
