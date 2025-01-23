@@ -57,3 +57,65 @@ export function multiCaptureInput(arr: Array<any>, bttnArr: Array<any>, currentR
     captureInput(arr, bttnArr, currentRow, 4)
 
 }
+
+
+export function randomInt(max: number){
+    return Math.floor(Math.random() * max)
+}
+
+
+export function attempt(arr: Array<any>, bttnArr: Array<any>, word: String, currentRow: number){
+    bttnArr[currentRow - 1].addEventListener('click', () => {
+          
+            let l1 = arr[0]?.textContent
+            let l2 = arr[1]?.textContent
+            let l3 = arr[2]?.textContent
+            let l4 = arr[3]?.textContent
+            let l5 = arr[4]?.textContent
+            
+            if(!l1 || !l2 || !l3|| !l4|| !l5){
+              throw new Error('I am trying to avoid null???');
+            }
+            
+            let guess = l1 + l2 + l3 + l4 + l5
+            let mysArr = word.split('')
+          
+            for(let i = 0; i < arr.length; i++){
+              if (word.charAt(i) == guess.charAt(i)){
+                arr[i].style.backgroundColor = "green";
+                arr[i].disabled = true;
+              }
+              else if(mysArr.includes(guess.charAt(i))){
+                console.log(mysArr)
+                arr[i].style.backgroundColor = "yellow";
+                arr[i].disabled = true;
+              }
+              else {
+                arr[i].style.backgroundColor = "red";
+                arr[i].disabled = true;
+              }
+            }
+            currentRow += 1
+            bttnArr[currentRow-1].disabled = true
+            for(let k = 1; k <= arr.length; k++){
+              arr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
+              arr[k-1].disabled = false
+            }
+            multiCaptureInput(arr, bttnArr, currentRow, 0)
+            multiBackspace(arr, bttnArr, currentRow, 0)
+
+            arr[0]?.focus()
+
+
+
+    })
+}
+
+export function allAttempts(arr: Array<any>, bttnArr: Array<any>, word: String, currentRow: number){
+    attempt(arr, bttnArr, word, 1)
+    attempt(arr, bttnArr, word, 2)
+    attempt(arr, bttnArr, word, 3)
+    attempt(arr, bttnArr, word, 4)
+    attempt(arr, bttnArr, word, 5)
+    attempt(arr, bttnArr, word, 6)
+}

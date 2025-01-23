@@ -1,5 +1,5 @@
 import '../styles/styles.scss'
-import {multiBackspace, captureInput, multiCaptureInput} from './backspace.ts' 
+import {multiBackspace, randomInt, multiCaptureInput, allAttempts} from './backspace.ts' 
 
 
 // let boxes = {
@@ -23,7 +23,11 @@ let tryButton6 = document.querySelector<HTMLButtonElement>('#bb6')
 
 const buttons = [tryButton1, tryButton2, tryButton3, tryButton4, tryButton5, tryButton6]
 
-const mystery = 'HILLS'
+const choices : String[] = ['HILLS', 'CHEAT', 'CRASH', 'LARGE', 'CAKES', 'BREAD', 'HONEY', 'FAKES', 'PROXY', 'SHOES', 'TAUNT', 'PUNCH']
+
+let place = randomInt(choices.length)
+
+const mystery = choices[place]
 
 const wordArr = [letter1, letter2, letter3, letter4, letter5]
 
@@ -189,324 +193,329 @@ if(!tryButton1 || !tryButton2 || !tryButton3 || !tryButton4 || !tryButton5){
   throw new Error('I am trying to avoid null???');
   }
 
-tryButton1.addEventListener('click', () => {
-  console.log('start')
 
-  let l1 = wordArr[0]?.textContent
-  let l2 = wordArr[1]?.textContent
-  let l3 = wordArr[2]?.textContent
-  let l4 = wordArr[3]?.textContent
-  let l5 = wordArr[4]?.textContent
+allAttempts(wordArr, buttons, mystery, 1)
+
+
+
+// tryButton1.addEventListener('click', () => {
+//   console.log('start')
+
+//   let l1 = wordArr[0]?.textContent
+//   let l2 = wordArr[1]?.textContent
+//   let l3 = wordArr[2]?.textContent
+//   let l4 = wordArr[3]?.textContent
+//   let l5 = wordArr[4]?.textContent
   
-  if(!l1 || !l2 || !l3|| !l4|| !l5){
-    throw new Error('I am trying to avoid null???');
-  }
+//   if(!l1 || !l2 || !l3|| !l4|| !l5){
+//     throw new Error('I am trying to avoid null???');
+//   }
   
-  let word = l1 + l2 + l3 + l4 + l5
-  let mysArr = mystery.split('')
+//   let word = l1 + l2 + l3 + l4 + l5
+//   let mysArr = mystery.split('')
 
-  for(let i = 0; i < wordArr.length; i++){
-    if (word.charAt(i) == mystery.charAt(i)){
-      wordArr[i].style.backgroundColor = "green";
-      wordArr[i].disabled = true;
-    }
-    else if(mysArr.includes(word.charAt(i))){
-      console.log(mysArr)
-      wordArr[i].style.backgroundColor = "yellow";
-      wordArr[i].disabled = true;
-    }
-    else {
-      wordArr[i].style.backgroundColor = "red";
-      wordArr[i].disabled = true;
-    }
-  }
-  console.log(tryButton1)
-  currentRow += 1
-  tryButton1.disabled = true
-  // tryButton1 = document.querySelector(`#bb${currentRow}`)
-  console.log(tryButton1)
-  for(let k = 1; k <= wordArr.length; k++){
-    console.log(wordArr)
-    wordArr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
-    wordArr[k-1].disabled = false
-    console.log(wordArr[0])
-  }
-  console.log(wordArr)
+//   for(let i = 0; i < wordArr.length; i++){
+//     if (word.charAt(i) == mystery.charAt(i)){
+//       wordArr[i].style.backgroundColor = "green";
+//       wordArr[i].disabled = true;
+//     }
+//     else if(mysArr.includes(word.charAt(i))){
+//       console.log(mysArr)
+//       wordArr[i].style.backgroundColor = "yellow";
+//       wordArr[i].disabled = true;
+//     }
+//     else {
+//       wordArr[i].style.backgroundColor = "red";
+//       wordArr[i].disabled = true;
+//     }
+//   }
+//   console.log(tryButton1)
+//   currentRow += 1
+//   tryButton1.disabled = true
+//   // tryButton1 = document.querySelector(`#bb${currentRow}`)
+//   console.log(tryButton1)
+//   for(let k = 1; k <= wordArr.length; k++){
+//     console.log(wordArr)
+//     wordArr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
+//     wordArr[k-1].disabled = false
+//     console.log(wordArr[0])
+//   }
+//   console.log(wordArr)
 
   
 
-  multiCaptureInput(wordArr, buttons, currentRow, 0)
-  multiBackspace(wordArr, buttons, currentRow, 0)
-  wordArr[0]?.focus()
-  console.log('end')
-})
+//   multiCaptureInput(wordArr, buttons, currentRow, 0)
+//   multiBackspace(wordArr, buttons, currentRow, 0)
+//   wordArr[0]?.focus()
+//   console.log('end')
+// })
 
 
-tryButton2.addEventListener('click', () => {
-  console.log('start')
+// tryButton2.addEventListener('click', () => {
+//   console.log('start')
 
 
-  let l1 = wordArr[0].textContent
-  let l2 = wordArr[1].textContent
-  let l3 = wordArr[2].textContent
-  let l4 = wordArr[3].textContent
-  let l5 = wordArr[4].textContent
+//   let l1 = wordArr[0].textContent
+//   let l2 = wordArr[1].textContent
+//   let l3 = wordArr[2].textContent
+//   let l4 = wordArr[3].textContent
+//   let l5 = wordArr[4].textContent
   
-  if(!l1 || !l2 || !l3|| !l4|| !l5){
-    throw new Error('I am trying to avoid null???');
-  }
+//   if(!l1 || !l2 || !l3|| !l4|| !l5){
+//     throw new Error('I am trying to avoid null???');
+//   }
   
-  let word = l1 + l2 + l3 + l4 + l5
-  let mysArr = mystery.split('')
+//   let word = l1 + l2 + l3 + l4 + l5
+//   let mysArr = mystery.split('')
 
-  for(let i = 0; i < wordArr.length; i++){
-    if (word.charAt(i) == mystery.charAt(i)){
-      wordArr[i].style.backgroundColor = "green";
-      wordArr[i].disabled = true;
-    }
-    else if(mysArr.includes(word.charAt(i))){
-      console.log(mysArr)
-      wordArr[i].style.backgroundColor = "yellow";
-      wordArr[i].disabled = true;
-    }
-    else {
-      wordArr[i].style.backgroundColor = "red";
-      wordArr[i].disabled = true;
-    }
-  }
-  console.log(tryButton2)
-  currentRow += 1
-  console.log(currentRow)
-  tryButton2.disabled = true
-  // tryButton1 = document.querySelector(`#bb${currentRow}`)
-  console.log(tryButton1)
-  for(let k = 1; k <= wordArr.length; k++){
-    console.log(wordArr)
-    wordArr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
-    console.log(wordArr)
-    wordArr[k-1].disabled = false
-    console.log(wordArr[0])
-  }
-  console.log(wordArr)
+//   for(let i = 0; i < wordArr.length; i++){
+//     if (word.charAt(i) == mystery.charAt(i)){
+//       wordArr[i].style.backgroundColor = "green";
+//       wordArr[i].disabled = true;
+//     }
+//     else if(mysArr.includes(word.charAt(i))){
+//       console.log(mysArr)
+//       wordArr[i].style.backgroundColor = "yellow";
+//       wordArr[i].disabled = true;
+//     }
+//     else {
+//       wordArr[i].style.backgroundColor = "red";
+//       wordArr[i].disabled = true;
+//     }
+//   }
+//   console.log(tryButton2)
+//   currentRow += 1
+//   console.log(currentRow)
+//   tryButton2.disabled = true
+//   // tryButton1 = document.querySelector(`#bb${currentRow}`)
+//   console.log(tryButton1)
+//   for(let k = 1; k <= wordArr.length; k++){
+//     console.log(wordArr)
+//     wordArr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
+//     console.log(wordArr)
+//     wordArr[k-1].disabled = false
+//     console.log(wordArr[0])
+//   }
+//   console.log(wordArr)
 
-  wordArr[0]?.focus()
+//   wordArr[0]?.focus()
 
-  multiCaptureInput(wordArr, buttons, currentRow, 0)
-  multiBackspace(wordArr, buttons, currentRow, 0)
-
-
-
-  console.log('end')
-})
+//   multiCaptureInput(wordArr, buttons, currentRow, 0)
+//   multiBackspace(wordArr, buttons, currentRow, 0)
 
 
-tryButton3.addEventListener('click', () => {
-  console.log('start')
 
-  let l1 = wordArr[0].textContent
-  let l2 = wordArr[1].textContent
-  let l3 = wordArr[2].textContent
-  let l4 = wordArr[3].textContent
-  let l5 = wordArr[4].textContent
+//   console.log('end')
+// })
+
+
+// tryButton3.addEventListener('click', () => {
+//   console.log('start')
+
+//   let l1 = wordArr[0].textContent
+//   let l2 = wordArr[1].textContent
+//   let l3 = wordArr[2].textContent
+//   let l4 = wordArr[3].textContent
+//   let l5 = wordArr[4].textContent
   
-  if(!l1 || !l2 || !l3|| !l4|| !l5){
-    throw new Error('I am trying to avoid null???');
-  }
+//   if(!l1 || !l2 || !l3|| !l4|| !l5){
+//     throw new Error('I am trying to avoid null???');
+//   }
   
-  let word = l1 + l2 + l3 + l4 + l5
-  let mysArr = mystery.split('')
+//   let word = l1 + l2 + l3 + l4 + l5
+//   let mysArr = mystery.split('')
 
-  for(let i = 0; i < wordArr.length; i++){
-    if (word.charAt(i) == mystery.charAt(i)){
-      wordArr[i].style.backgroundColor = "green";
-      wordArr[i].disabled = true;
-    }
-    else if(mysArr.includes(word.charAt(i))){
-      console.log(mysArr)
-      wordArr[i].style.backgroundColor = "yellow";
-      wordArr[i].disabled = true;
-    }
-    else {
-      wordArr[i].style.backgroundColor = "red";
-      wordArr[i].disabled = true;
-    }
-  }
-  currentRow += 1
-  tryButton3.disabled = true
+//   for(let i = 0; i < wordArr.length; i++){
+//     if (word.charAt(i) == mystery.charAt(i)){
+//       wordArr[i].style.backgroundColor = "green";
+//       wordArr[i].disabled = true;
+//     }
+//     else if(mysArr.includes(word.charAt(i))){
+//       console.log(mysArr)
+//       wordArr[i].style.backgroundColor = "yellow";
+//       wordArr[i].disabled = true;
+//     }
+//     else {
+//       wordArr[i].style.backgroundColor = "red";
+//       wordArr[i].disabled = true;
+//     }
+//   }
+//   currentRow += 1
+//   tryButton3.disabled = true
 
-  console.log(currentRow)
-  for(let k = 1; k <= wordArr.length; k++){
+//   console.log(currentRow)
+//   for(let k = 1; k <= wordArr.length; k++){
   
-    wordArr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
-    wordArr[k-1].disabled = false
-    console.log(wordArr[0])
-  }
-  console.log(wordArr)
+//     wordArr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
+//     wordArr[k-1].disabled = false
+//     console.log(wordArr[0])
+//   }
+//   console.log(wordArr)
 
 
-  multiCaptureInput(wordArr, buttons, currentRow, 0)
-  multiBackspace(wordArr, buttons, currentRow, 0)
+//   multiCaptureInput(wordArr, buttons, currentRow, 0)
+//   multiBackspace(wordArr, buttons, currentRow, 0)
 
 
 
-  wordArr[0]?.focus()
+//   wordArr[0]?.focus()
 
 
-  console.log('end')
-})
+//   console.log('end')
+// })
 
-tryButton4.addEventListener('click', () => {
-  console.log('start')
+// tryButton4.addEventListener('click', () => {
+//   console.log('start')
 
 
-  let l1 = wordArr[0].textContent
-  let l2 = wordArr[1].textContent
-  let l3 = wordArr[2].textContent
-  let l4 = wordArr[3].textContent
-  let l5 = wordArr[4].textContent
+//   let l1 = wordArr[0].textContent
+//   let l2 = wordArr[1].textContent
+//   let l3 = wordArr[2].textContent
+//   let l4 = wordArr[3].textContent
+//   let l5 = wordArr[4].textContent
   
-  if(!l1 || !l2 || !l3|| !l4|| !l5){
-    throw new Error('I am trying to avoid null???');
-  }
+//   if(!l1 || !l2 || !l3|| !l4|| !l5){
+//     throw new Error('I am trying to avoid null???');
+//   }
   
-  let word = l1 + l2 + l3 + l4 + l5
-  let mysArr = mystery.split('')
+//   let word = l1 + l2 + l3 + l4 + l5
+//   let mysArr = mystery.split('')
 
-  for(let i = 0; i < wordArr.length; i++){
-    if (word.charAt(i) == mystery.charAt(i)){
-      wordArr[i].style.backgroundColor = "green";
-      wordArr[i].disabled = true;
-    }
-    else if(mysArr.includes(word.charAt(i))){
-      console.log(mysArr)
-      wordArr[i].style.backgroundColor = "yellow";
-      wordArr[i].disabled = true;
-    }
-    else {
-      wordArr[i].style.backgroundColor = "red";
-      wordArr[i].disabled = true;
-    }
-  }
-  currentRow += 1
-  tryButton4.disabled = true
+//   for(let i = 0; i < wordArr.length; i++){
+//     if (word.charAt(i) == mystery.charAt(i)){
+//       wordArr[i].style.backgroundColor = "green";
+//       wordArr[i].disabled = true;
+//     }
+//     else if(mysArr.includes(word.charAt(i))){
+//       console.log(mysArr)
+//       wordArr[i].style.backgroundColor = "yellow";
+//       wordArr[i].disabled = true;
+//     }
+//     else {
+//       wordArr[i].style.backgroundColor = "red";
+//       wordArr[i].disabled = true;
+//     }
+//   }
+//   currentRow += 1
+//   tryButton4.disabled = true
 
-  console.log(currentRow)
-  for(let k = 1; k <= wordArr.length; k++){
+//   console.log(currentRow)
+//   for(let k = 1; k <= wordArr.length; k++){
   
-    wordArr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
-    wordArr[k-1].disabled = false
-    console.log(wordArr[0])
-  }
-  console.log(wordArr)
+//     wordArr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
+//     wordArr[k-1].disabled = false
+//     console.log(wordArr[0])
+//   }
+//   console.log(wordArr)
 
-  multiCaptureInput(wordArr, buttons, currentRow, 0)
-  multiBackspace(wordArr, buttons, currentRow, 0)
-
-
-
-  wordArr[0]?.focus()
+//   multiCaptureInput(wordArr, buttons, currentRow, 0)
+//   multiBackspace(wordArr, buttons, currentRow, 0)
 
 
-  console.log('end')
-})
 
-tryButton5.addEventListener('click', () => {
-  console.log('start')
+//   wordArr[0]?.focus()
 
-  let l1 = wordArr[0].textContent
-  let l2 = wordArr[1].textContent
-  let l3 = wordArr[2].textContent
-  let l4 = wordArr[3].textContent
-  let l5 = wordArr[4].textContent
+
+//   console.log('end')
+// })
+
+// tryButton5.addEventListener('click', () => {
+//   console.log('start')
+
+//   let l1 = wordArr[0].textContent
+//   let l2 = wordArr[1].textContent
+//   let l3 = wordArr[2].textContent
+//   let l4 = wordArr[3].textContent
+//   let l5 = wordArr[4].textContent
   
-  if(!l1 || !l2 || !l3|| !l4|| !l5){
-    throw new Error('I am trying to avoid null???');
-  }
+//   if(!l1 || !l2 || !l3|| !l4|| !l5){
+//     throw new Error('I am trying to avoid null???');
+//   }
   
-  let word = l1 + l2 + l3 + l4 + l5
-  let mysArr = mystery.split('')
+//   let word = l1 + l2 + l3 + l4 + l5
+//   let mysArr = mystery.split('')
 
-  for(let i = 0; i < wordArr.length; i++){
-    if (word.charAt(i) == mystery.charAt(i)){
-      wordArr[i].style.backgroundColor = "green";
-      wordArr[i].disabled = true;
-    }
-    else if(mysArr.includes(word.charAt(i))){
-      console.log(mysArr)
-      wordArr[i].style.backgroundColor = "yellow";
-      wordArr[i].disabled = true;
-    }
-    else {
-      wordArr[i].style.backgroundColor = "red";
-      wordArr[i].disabled = true;
-    }
-  }
-  currentRow += 1
-  tryButton5.disabled = true
+//   for(let i = 0; i < wordArr.length; i++){
+//     if (word.charAt(i) == mystery.charAt(i)){
+//       wordArr[i].style.backgroundColor = "green";
+//       wordArr[i].disabled = true;
+//     }
+//     else if(mysArr.includes(word.charAt(i))){
+//       console.log(mysArr)
+//       wordArr[i].style.backgroundColor = "yellow";
+//       wordArr[i].disabled = true;
+//     }
+//     else {
+//       wordArr[i].style.backgroundColor = "red";
+//       wordArr[i].disabled = true;
+//     }
+//   }
+//   currentRow += 1
+//   tryButton5.disabled = true
 
-  console.log(currentRow)
-  for(let k = 1; k <= wordArr.length; k++){
+//   console.log(currentRow)
+//   for(let k = 1; k <= wordArr.length; k++){
   
-    wordArr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
-    wordArr[k-1].disabled = false
-    console.log(wordArr[0])
-  }
-  console.log(wordArr)
+//     wordArr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
+//     wordArr[k-1].disabled = false
+//     console.log(wordArr[0])
+//   }
+//   console.log(wordArr)
 
-  multiCaptureInput(wordArr, buttons, currentRow, 0)
-  multiBackspace(wordArr, buttons, currentRow, 0)
-
-
-  wordArr[0]?.focus()
+//   multiCaptureInput(wordArr, buttons, currentRow, 0)
+//   multiBackspace(wordArr, buttons, currentRow, 0)
 
 
-  console.log('end')
-})
+//   wordArr[0]?.focus()
 
-tryButton6.addEventListener('click', () => {
-  console.log('start')
 
-  let l1 = wordArr[0].textContent
-  let l2 = wordArr[1].textContent
-  let l3 = wordArr[2].textContent
-  let l4 = wordArr[3].textContent
-  let l5 = wordArr[4].textContent
+//   console.log('end')
+// })
+
+// tryButton6.addEventListener('click', () => {
+//   console.log('start')
+
+//   let l1 = wordArr[0].textContent
+//   let l2 = wordArr[1].textContent
+//   let l3 = wordArr[2].textContent
+//   let l4 = wordArr[3].textContent
+//   let l5 = wordArr[4].textContent
   
-  if(!l1 || !l2 || !l3|| !l4|| !l5){
-    throw new Error('I am trying to avoid null???');
-  }
+//   if(!l1 || !l2 || !l3|| !l4|| !l5){
+//     throw new Error('I am trying to avoid null???');
+//   }
   
-  let word = l1 + l2 + l3 + l4 + l5
-  let mysArr = mystery.split('')
+//   let word = l1 + l2 + l3 + l4 + l5
+//   let mysArr = mystery.split('')
 
-  for(let i = 0; i < wordArr.length; i++){
-    if (word.charAt(i) == mystery.charAt(i)){
-      wordArr[i].style.backgroundColor = "green";
-      wordArr[i].disabled = true;
-    }
-    else if(mysArr.includes(word.charAt(i))){
-      console.log(mysArr)
-      wordArr[i].style.backgroundColor = "yellow";
-      wordArr[i].disabled = true;
-    }
-    else {
-      wordArr[i].style.backgroundColor = "red";
-      wordArr[i].disabled = true;
-    }
-  }
+//   for(let i = 0; i < wordArr.length; i++){
+//     if (word.charAt(i) == mystery.charAt(i)){
+//       wordArr[i].style.backgroundColor = "green";
+//       wordArr[i].disabled = true;
+//     }
+//     else if(mysArr.includes(word.charAt(i))){
+//       console.log(mysArr)
+//       wordArr[i].style.backgroundColor = "yellow";
+//       wordArr[i].disabled = true;
+//     }
+//     else {
+//       wordArr[i].style.backgroundColor = "red";
+//       wordArr[i].disabled = true;
+//     }
+//   }
 
-  if (word !== mystery){
-    //loserrr
-  }
-  currentRow += 1
-  tryButton6.disabled = true
+//   if (word !== mystery){
+//     //loserrr
+//   }
+//   currentRow += 1
+//   tryButton6.disabled = true
 
-  console.log(wordArr)
+//   console.log(wordArr)
 
-  console.log('end')
+//   console.log('end')
 
 
-})
+// })
 
 
 
