@@ -1,5 +1,5 @@
 import '../styles/styles.scss'
-import {multiBackspace} from './backspace.ts' 
+import {multiBackspace, captureInput, multiCaptureInput} from './backspace.ts' 
 
 
 // let boxes = {
@@ -33,88 +33,95 @@ if (!letter1 || !letter2 || !letter3 || !letter4 || !letter5){
 
 //handler listener
 
-function handler1 (event: Event) {
-  let target = event.target as HTMLInputElement
-  let currentValue: string = target.value
-  if (wordArr[0]) {wordArr[0].innerText = currentValue.toUpperCase()
-    wordArr[1]?.focus()
-    console.log(wordArr[0].textContent)
-  }
-  if(wordArr[0]?.textContent == ''){
-    wordArr[0]?.focus()
-  }
+multiCaptureInput(wordArr, buttons, currentRow, 0)
 
-  if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
-    buttons[currentRow-1].disabled = false}
-  else{
-    buttons[currentRow-1].disabled = true
-  }
-}
-function handler2 (event: Event) {
-  let target = event.target as HTMLInputElement
-  let currentValue: string = target.value
-  if (wordArr[1]) { wordArr[1].innerText = currentValue.toUpperCase()
-    wordArr[2]?.focus()
-    console.log(wordArr[1].textContent)}
-  if(wordArr[1]?.textContent == ''){
-      wordArr[1]?.focus()
-    }
-  if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
-    buttons[currentRow-1].disabled = false}
-  else{
-    buttons[currentRow-1].disabled = true
-  }
-}
-function handler3 (event: Event) {
-  const target = event.target as HTMLInputElement
-  const currentValue: string = target.value
-  if (wordArr[2]) { wordArr[2].innerText = currentValue.toUpperCase()
-    wordArr[3]?.focus()
-    console.log(wordArr[2].textContent)}
-  if(wordArr[2]?.textContent == ''){
-      wordArr[2]?.focus()
-    }
-  if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
-    buttons[currentRow-1].disabled = false}
-  else{
-    buttons[currentRow-1].disabled = true
-  }
-}
-function handler4 (event: Event) {
-  const target = event.target as HTMLInputElement
-  const currentValue: string = target.value
-  if (wordArr[3]) {wordArr[3].innerText = currentValue.toUpperCase()
-    wordArr[4]?.focus()
-    console.log(wordArr[3].textContent)}
-  if(wordArr[3]?.textContent == ''){
-      wordArr[3]?.focus()
-    }
-  if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
-      buttons[currentRow-1].disabled = false}
-    else{
-      buttons[currentRow-1].disabled = true
-    }
-}
-function handler5 (event: Event) {
-  const target = event.target as HTMLInputElement
-  const currentValue: string = target.value
-  if (wordArr[4]) {wordArr[4].innerText = currentValue.toUpperCase()
-    console.log(wordArr[4].textContent)
-    buttons[currentRow-1]?.focus()}
+// captureInput(wordArr, buttons, currentRow, 0)
+// captureInput(wordArr, buttons, currentRow, 1)
+// captureInput(wordArr, buttons, currentRow, 2)
+// captureInput(wordArr, buttons, currentRow, 3)
+// captureInput(wordArr, buttons, currentRow, 4)
 
-  if(wordArr[4]?.textContent == ''){
-      wordArr[4]?.focus()
-    }
+// function handler1 (event: Event) {
+//   let target = event.target as HTMLInputElement
+//   let currentValue: string = target.value
+//   if (wordArr[0]) {wordArr[0].innerText = currentValue.toUpperCase()
+//     wordArr[1]?.focus()
+//     console.log(wordArr[0].textContent)
+//   }
+//   if(wordArr[0]?.textContent == ''){
+//     wordArr[0]?.focus()
+//   }
 
-  if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
-    buttons[currentRow-1].disabled = false
-    buttons[currentRow-1]?.focus()
-  }
-  else{
-    buttons[currentRow-1].disabled = true
-    buttons[currentRow-1]?.focus()
-  }
-}
+//   if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
+//     buttons[currentRow-1].disabled = false}
+//   else{
+//     buttons[currentRow-1].disabled = true
+//   }
+// }
+// function handler2 (event: Event) {
+//   let target = event.target as HTMLInputElement
+//   let currentValue: string = target.value
+//   if (wordArr[1]) { wordArr[1].innerText = currentValue.toUpperCase()
+//     wordArr[2]?.focus()
+//     console.log(wordArr[1].textContent)}
+//   if(wordArr[1]?.textContent == ''){
+//       wordArr[1]?.focus()
+//     }
+//   if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
+//     buttons[currentRow-1].disabled = false}
+//   else{
+//     buttons[currentRow-1].disabled = true
+//   }
+// }
+// function handler3 (event: Event) {
+//   const target = event.target as HTMLInputElement
+//   const currentValue: string = target.value
+//   if (wordArr[2]) { wordArr[2].innerText = currentValue.toUpperCase()
+//     wordArr[3]?.focus()
+//     console.log(wordArr[2].textContent)}
+//   if(wordArr[2]?.textContent == ''){
+//       wordArr[2]?.focus()
+//     }
+//   if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
+//     buttons[currentRow-1].disabled = false}
+//   else{
+//     buttons[currentRow-1].disabled = true
+//   }
+// }
+// function handler4 (event: Event) {
+//   const target = event.target as HTMLInputElement
+//   const currentValue: string = target.value
+//   if (wordArr[3]) {wordArr[3].innerText = currentValue.toUpperCase()
+//     wordArr[4]?.focus()
+//     console.log(wordArr[3].textContent)}
+//   if(wordArr[3]?.textContent == ''){
+//       wordArr[3]?.focus()
+//     }
+//   if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
+//       buttons[currentRow-1].disabled = false}
+//     else{
+//       buttons[currentRow-1].disabled = true
+//     }
+// }
+// function handler5 (event: Event) {
+//   const target = event.target as HTMLInputElement
+//   const currentValue: string = target.value
+//   if (wordArr[4]) {wordArr[4].innerText = currentValue.toUpperCase()
+//     console.log(wordArr[4].textContent)
+//     buttons[currentRow-1]?.focus()}
+
+//   if(wordArr[4]?.textContent == ''){
+//       wordArr[4]?.focus()
+//     }
+
+//   if(wordArr[0]?.textContent && wordArr[1]?.textContent  && wordArr[2]?.textContent  && wordArr[3]?.textContent  && wordArr[4]?.textContent){
+//     buttons[currentRow-1].disabled = false
+//     buttons[currentRow-1]?.focus()
+//   }
+//   else{
+//     buttons[currentRow-1].disabled = true
+//   }
+// }
 
 
 // function backKey (event: Event){
@@ -137,7 +144,7 @@ function handler5 (event: Event) {
 // backspace(wordArr, 3)
 // backspace(wordArr, 4)
 
-multiBackspace(wordArr, 0)
+multiBackspace(wordArr, buttons, currentRow, 0)
 
 
 
@@ -171,11 +178,11 @@ multiBackspace(wordArr, 0)
 // wordArr[2]?.addEventListener('input', function(){handler1(event, 2)})
 // wordArr[3]?.addEventListener('input', function(){handler1(event, 3)})
 // wordArr[4]?.addEventListener('input', function(){handler1(event, 4)})
-wordArr[0]?.addEventListener('input', handler1)
-wordArr[1]?.addEventListener('input', handler2)
-wordArr[2]?.addEventListener('input', handler3)
-wordArr[3]?.addEventListener('input', handler4)
-wordArr[4]?.addEventListener('input', handler5)
+// wordArr[0]?.addEventListener('input', handler1)
+// wordArr[1]?.addEventListener('input', handler2)
+// wordArr[2]?.addEventListener('input', handler3)
+// wordArr[3]?.addEventListener('input', handler4)
+// wordArr[4]?.addEventListener('input', handler5)
 
 
 if(!tryButton1 || !tryButton2 || !tryButton3 || !tryButton4 || !tryButton5){
@@ -225,13 +232,12 @@ tryButton1.addEventListener('click', () => {
     console.log(wordArr[0])
   }
   console.log(wordArr)
-  wordArr[0].addEventListener('input', handler1)
-  wordArr[1].addEventListener('input', handler2)
-  wordArr[2].addEventListener('input', handler3)
-  wordArr[3].addEventListener('input', handler4)
-  wordArr[4].addEventListener('input', handler5)
 
-  multiBackspace(wordArr, 0)
+  
+
+  multiCaptureInput(wordArr, buttons, currentRow, 0)
+  multiBackspace(wordArr, buttons, currentRow, 0)
+  wordArr[0]?.focus()
   console.log('end')
 })
 
@@ -282,13 +288,12 @@ tryButton2.addEventListener('click', () => {
     console.log(wordArr[0])
   }
   console.log(wordArr)
-  wordArr[0].addEventListener('input', handler1)
-  wordArr[1].addEventListener('input', handler2)
-  wordArr[2].addEventListener('input', handler3)
-  wordArr[3].addEventListener('input', handler4)
-  wordArr[4].addEventListener('input', handler5)
 
   wordArr[0]?.focus()
+
+  multiCaptureInput(wordArr, buttons, currentRow, 0)
+  multiBackspace(wordArr, buttons, currentRow, 0)
+
 
 
   console.log('end')
@@ -337,11 +342,12 @@ tryButton3.addEventListener('click', () => {
     console.log(wordArr[0])
   }
   console.log(wordArr)
-  wordArr[0].addEventListener('input', handler1)
-  wordArr[1].addEventListener('input', handler2)
-  wordArr[2].addEventListener('input', handler3)
-  wordArr[3].addEventListener('input', handler4)
-  wordArr[4].addEventListener('input', handler5)
+
+
+  multiCaptureInput(wordArr, buttons, currentRow, 0)
+  multiBackspace(wordArr, buttons, currentRow, 0)
+
+
 
   wordArr[0]?.focus()
 
@@ -392,11 +398,11 @@ tryButton4.addEventListener('click', () => {
     console.log(wordArr[0])
   }
   console.log(wordArr)
-  wordArr[0].addEventListener('input', handler1)
-  wordArr[1].addEventListener('input', handler2)
-  wordArr[2].addEventListener('input', handler3)
-  wordArr[3].addEventListener('input', handler4)
-  wordArr[4].addEventListener('input', handler5)
+
+  multiCaptureInput(wordArr, buttons, currentRow, 0)
+  multiBackspace(wordArr, buttons, currentRow, 0)
+
+
 
   wordArr[0]?.focus()
 
@@ -446,11 +452,10 @@ tryButton5.addEventListener('click', () => {
     console.log(wordArr[0])
   }
   console.log(wordArr)
-  wordArr[0].addEventListener('input', handler1)
-  wordArr[1].addEventListener('input', handler2)
-  wordArr[2].addEventListener('input', handler3)
-  wordArr[3].addEventListener('input', handler4)
-  wordArr[4].addEventListener('input', handler5)
+
+  multiCaptureInput(wordArr, buttons, currentRow, 0)
+  multiBackspace(wordArr, buttons, currentRow, 0)
+
 
   wordArr[0]?.focus()
 
