@@ -1,3 +1,4 @@
+import '../styles/styles.scss'
 
 export function backspace(arr: Array<any>, bttnArr: Array<any>, currentRow: number, n: number, p: number = n - 1 ) {
     arr[n]?.addEventListener('keydown', (pressed: any) => {
@@ -64,7 +65,7 @@ export function randomInt(max: number){
 }
 
 
-export function attempt(arr: Array<any>, bttnArr: Array<any>, word: String, currentRow: number){
+export function attempt(arr: Array<any>, bttnArr: Array<any>, word: string, currentRow: number){
     bttnArr[currentRow - 1].addEventListener('click', () => {
           
             let l1 = arr[0]?.textContent
@@ -95,23 +96,40 @@ export function attempt(arr: Array<any>, bttnArr: Array<any>, word: String, curr
                 arr[i].disabled = true;
               }
             }
-            currentRow += 1
-            bttnArr[currentRow-1].disabled = true
-            for(let k = 1; k <= arr.length; k++){
-              arr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
-              arr[k-1].disabled = false
+
+            let winPopup = document.querySelector<HTMLDivElement>('.winPop')
+            let lossPopup = document.querySelector<HTMLDivElement>('.lossPop')
+            let wordReveal = document.querySelector<HTMLHeadingElement>('.lossMess3')
+            if(!winPopup || !lossPopup || !wordReveal){
+                throw new Error('I am trying to avoid null???');
             }
-            multiCaptureInput(arr, bttnArr, currentRow, 0)
-            multiBackspace(arr, bttnArr, currentRow, 0)
-
-            arr[0]?.focus()
 
 
+            if(word != guess && currentRow < 6){
+                currentRow += 1
+                bttnArr[currentRow-1].disabled = true
+                for(let k = 1; k <= arr.length; k++){
+                    arr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
+                    arr[k-1].disabled = false
+                }
+                multiCaptureInput(arr, bttnArr, currentRow, 0)
+                multiBackspace(arr, bttnArr, currentRow, 0)
+
+                arr[0]?.focus()
+                }
+            else if (word != guess && currentRow == 6){
+                wordReveal.innerText = word
+                lossPopup.style.display = 'flex'
+
+            }
+            else if (word == guess){
+                winPopup.style.display = 'flex'
+                }
 
     })
 }
 
-export function allAttempts(arr: Array<any>, bttnArr: Array<any>, word: String, currentRow: number){
+export function allAttempts(arr: Array<any>, bttnArr: Array<any>, word: string){
     attempt(arr, bttnArr, word, 1)
     attempt(arr, bttnArr, word, 2)
     attempt(arr, bttnArr, word, 3)

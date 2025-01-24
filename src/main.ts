@@ -23,7 +23,7 @@ let tryButton6 = document.querySelector<HTMLButtonElement>('#bb6')
 
 const buttons = [tryButton1, tryButton2, tryButton3, tryButton4, tryButton5, tryButton6]
 
-const choices : String[] = ['HILLS', 'CHEAT', 'CRASH', 'LARGE', 'CAKES', 'BREAD', 'HONEY', 'FAKES', 'PROXY', 'SHOES', 'TAUNT', 'PUNCH']
+const choices : String[] = ['HILLS', 'CHEAT', 'CRASH', 'LARGE', 'CAKES', 'BREAD', 'HONEY', 'FAKES', 'PROXY', 'SHOES', 'TAUNT', 'PUNCH', 'BREED', 'PROVE' ]
 
 let place = randomInt(choices.length)
 
