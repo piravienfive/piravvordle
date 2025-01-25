@@ -107,4 +107,14 @@ export function attemptHandler (event: Event,arr: Array<any>, bttnArr: Array<any
         }
 
   }
+  else {
+    let nawPop = document.querySelector<HTMLDivElement>('.not-a-word')
+    if (!nawPop){
+      throw new Error('I am trying to avoid null???');
+    }
+    nawPop.style.display = 'flex'
+    setTimeout(function(){
+    nawPop.style.display = 'none'}, 1500)
+
+  }
 }

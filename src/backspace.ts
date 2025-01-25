@@ -134,7 +134,19 @@ export function attempt(arr: Array<any>, bttnArr: Array<any>, word: string, curr
                         allBoxes[i].disabled = true
 
                     }
-                }}})}
+                }}
+                else {
+                    let nawPop = document.querySelector<HTMLDivElement>('.not-a-word')
+                    if (!nawPop){
+                      throw new Error('I am trying to avoid null???');
+                    }
+                    nawPop.style.display = 'flex'
+                    setTimeout(function(){
+                    nawPop.style.display = 'none'}, 1500)
+                
+                  }
+                }
+            )}
 
 
 export function allAttempts(arr: Array<any>, bttnArr: Array<any>, word: string){

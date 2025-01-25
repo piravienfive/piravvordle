@@ -201,3 +201,38 @@ button{
 }
 
 
+
+.not-a-word {
+    border: solid 5px darkgreen;
+    width: 33%;
+    margin: 0% 32.5% 0% 32.5%;
+    display: none;
+    height: 50px;
+    z-index: 99;
+    position: absolute;
+    top: 16%;
+    left: 0%;
+    background-color: pink;
+    opacity: 100%;
+    vertical-align: top;
+    animation: skew-x-shake 2s infinite;
+
+}
+
+.naw-mess{
+    font-size: 35px;
+    top: -90%;
+    left: 13%;
+    position: absolute;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+@keyframes skew-x-shake {
+    0% { transform: skewX(-15deg); }
+    5% { transform: skewX(15deg); }
+    10% { transform: skewX(-15deg); }
+    15% { transform: skewX(15deg); }
+    20% { transform: skewX(0deg); }
+    100% { transform: skewX(0deg); }  
+  }
