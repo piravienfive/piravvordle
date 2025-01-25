@@ -1,4 +1,8 @@
 import {multiBackspace, multiCaptureInput} from './backspace.ts' 
+import data from './../words.json'
+
+
+const wordList = data.wordBank
 
 
 
@@ -46,106 +50,61 @@ export function attemptHandler (event: Event,arr: Array<any>, bttnArr: Array<any
   }
   
   let guess = l1 + l2 + l3 + l4 + l5
+  console.log(guess.toLowerCase())
   let mysArr = word.split('')
+  console.log(wordList)
+  if (wordList.includes(guess.toLowerCase())){
 
-  for(let i = 0; i < arr.length; i++){
-    if (word.charAt(i) == guess.charAt(i)){
-      arr[i].style.backgroundColor = "green";
-      arr[i].disabled = true;
-    }
-    else if(mysArr.includes(guess.charAt(i))){
-      console.log(mysArr)
-      arr[i].style.backgroundColor = "yellow";
-      arr[i].disabled = true;
-    }
-    else {
-      arr[i].style.backgroundColor = "red";
-      arr[i].disabled = true;
-    }
-  }
-
-  let winPopup = document.querySelector<HTMLDivElement>('.winPop')
-  let lossPopup = document.querySelector<HTMLDivElement>('.lossPop')
-  let wordReveal = document.querySelector<HTMLHeadingElement>('.lossMess3')
-  if(!winPopup || !lossPopup || !wordReveal){
-      throw new Error('I am trying to avoid null???');
-  }
-
-  if(word != guess && currentRow < 6){
-      console.log(currentRow, 'before increment')
-      currentRow += 1
-      console.log(currentRow, 'after increment')
-      bttnArr[currentRow-1].disabled = true
-      for(let k = 1; k <= arr.length; k++){
-          arr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
-          arr[k-1].disabled = false
+    for(let i = 0; i < arr.length; i++){
+      if (word.charAt(i) == guess.charAt(i)){
+        arr[i].style.backgroundColor = "green";
+        arr[i].disabled = true;
       }
-      multiCaptureInput(arr, bttnArr, currentRow, 0)
-      multiBackspace(arr, bttnArr, currentRow, 0)
-
-      arr[0]?.focus()
+      else if(mysArr.includes(guess.charAt(i))){
+        console.log(mysArr)
+        arr[i].style.backgroundColor = "yellow";
+        arr[i].disabled = true;
       }
-  else if (word != guess && currentRow == 6){
-      wordReveal.innerText = word
-      lossPopup.style.display = 'flex'
-
-  }
-  else if (word == guess){
-      winPopup.style.display = 'flex'
-      let allBoxes = document.querySelectorAll<HTMLInputElement>('.inputBox')
-      for(let i = 0; i < allBoxes.length; i++){
-        allBoxes[i].disabled = true
+      else {
+        arr[i].style.backgroundColor = "red";
+        arr[i].disabled = true;
+      }
     }
 
+    let winPopup = document.querySelector<HTMLDivElement>('.winPop')
+    let lossPopup = document.querySelector<HTMLDivElement>('.lossPop')
+    let wordReveal = document.querySelector<HTMLHeadingElement>('.lossMess3')
+    if(!winPopup || !lossPopup || !wordReveal){
+        throw new Error('I am trying to avoid null???');
+    }
+
+    if(word != guess && currentRow < 6){
+        console.log(currentRow, 'before increment')
+        currentRow += 1
+        console.log(currentRow, 'after increment')
+        bttnArr[currentRow-1].disabled = true
+        for(let k = 1; k <= arr.length; k++){
+            arr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
+            arr[k-1].disabled = false
+        }
+        multiCaptureInput(arr, bttnArr, currentRow, 0)
+        multiBackspace(arr, bttnArr, currentRow, 0)
+
+        arr[0]?.focus()
+        }
+    else if (word != guess && currentRow == 6){
+        wordReveal.innerText = word
+        lossPopup.style.display = 'flex'
+
+    }
+    else if (word == guess){
+        winPopup.style.display = 'flex'
+        let allBoxes = document.querySelectorAll<HTMLInputElement>('.inputBox')
+        for(let i = 0; i < allBoxes.length; i++){
+          allBoxes[i].disabled = true
       }
 
-}
+        }
 
-export function randomInt(max: number){
-  return Math.floor(Math.random() * max)
-}
-
-
-export function playAgainHandler (event: Event,arr: Array<any>, bttnArr: Array<any>, word: string, options : string[] =['HILLS', 'CHEAT', 'CRASH', 'LARGE', 'CAKES', 'BREAD', 'HONEY', 'FAKES', 'PROXY', 'SHOES', 'TAUNT', 'PUNCH', 'BREED', 'PROVE' ]) {
-  console.log(event)
-  let allBoxes = document.querySelectorAll<HTMLInputElement>('.inputBox')
-  for(let i = 0; i < allBoxes.length; i++){
-    allBoxes[i].value = ''
-    allBoxes[i].style.backgroundColor = 'white'
-    allBoxes[i].disabled = true
   }
-  
-    arr[0].disabled = false
-    arr[1].disabled = false
-    arr[2].disabled = false
-    arr[3].disabled = false
-    arr[4].disabled = false
-    arr[0].focus()
-    
-
-    for(let i = 0; i < bttnArr.length; i++){
-      if(!bttnArr[i]){
-          throw new Error('I am trying to avoid null???')
-      }
-      bttnArr[i].disabled = true
-  }
-
-  let winPopup = document.querySelector<HTMLDivElement>('.winPop')
-  let lossPopup = document.querySelector<HTMLDivElement>('.lossPop')
-
-  if(!winPopup || !lossPopup){
-    throw new Error('I am trying to avoid null???');
-  }
-
-  lossPopup.style.display = 'none'
-  winPopup.style.display = 'none'
-
-  let currentRow = 1
-  let mystery = options[randomInt(options.length)]
-
-
-
-
-
-
 }
