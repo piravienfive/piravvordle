@@ -131,7 +131,7 @@ button{
 .lossMess2 {
 
     font-size: 60px;
-    top: 20%;
+    top: 15%;
     left: 22%;
     position: absolute;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -139,7 +139,7 @@ button{
 
 .lossMess3 {
     font-size: 80px;
-    top: 30%;
+    top: 20%;
     left: 31%;
     position: absolute;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -170,7 +170,9 @@ button{
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
 
-.playAgain{
+.play-again{
+
+    &-win{
     position: absolute;
     top: 60%;
     left: 35%;
@@ -179,9 +181,23 @@ button{
     background-color: pink;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 25px;
+    cursor: click;
+    }
 
+    &-loss{
+        background-color: pink;
+        width: 30%;
+        height: 20%;
+        background-color: pink;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 25px;
+        position: absolute;
+        top: 70%;
+        left: 34%;
+        cursor: click;
+    }
 
-    
 
 }
+
 

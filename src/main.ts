@@ -1,6 +1,6 @@
 import '../styles/styles.scss'
-import {multiBackspace, randomInt, multiCaptureInput, allAttempts} from './backspace.ts' 
-
+import {multiBackspace, randomInt, multiCaptureInput, allAttempts, playAgain, attempt} from './backspace.ts' 
+import { attemptHandler, captureInputHandler } from './utils.ts'
 
 // let boxes = {
 //   1 : [letter]
@@ -23,21 +23,61 @@ let tryButton6 = document.querySelector<HTMLButtonElement>('#bb6')
 
 const buttons = [tryButton1, tryButton2, tryButton3, tryButton4, tryButton5, tryButton6]
 
-const choices : String[] = ['HILLS', 'CHEAT', 'CRASH', 'LARGE', 'CAKES', 'BREAD', 'HONEY', 'FAKES', 'PROXY', 'SHOES', 'TAUNT', 'PUNCH', 'BREED', 'PROVE' ]
-
-let place = randomInt(choices.length)
-
-const mystery = choices[place]
-
 const wordArr = [letter1, letter2, letter3, letter4, letter5]
+
+const choices : string[] = ['HILLS', 'CHEAT', 'CRASH', 'LARGE', 'CAKES', 'BREAD', 'HONEY', 'FAKES', 'PROXY', 'SHOES', 'TAUNT', 'PUNCH', 'BREED', 'PROVE' ]
+
+let mystery = choices[randomInt(choices.length)]
 
 if (!letter1 || !letter2 || !letter3 || !letter4 || !letter5){
   throw new Error('I am trying to avoid null???');
 }
 
+if(!tryButton1 || !tryButton2 || !tryButton3 || !tryButton4 || !tryButton5){
+  throw new Error('I am trying to avoid null???');
+  }
+
+
 //handler listener
 
-multiCaptureInput(wordArr, buttons, currentRow, 0)
+// multiCaptureInput(wordArr, buttons, currentRow, 0)
+
+// export function captureInputHandler (arr: Array<HTMLInputElement>, bttnArr : Array<HTMLButtonElement>, currentRow: number, n: number, p=n+1) {
+
+//   if (arr[n]) {arr[n].value = arr[n].value.toUpperCase()
+//       arr[p]?.focus()
+//     }
+//     if(arr[n]?.value == ''){
+//       arr[n]?.focus()
+//     }
+  
+//   if(arr[n]?.value && arr[n-1]?.value  && arr[n-2]?.value  && arr[n-3]?.value  && arr[n-4]?.value){
+//   bttnArr[currentRow-1].disabled = false
+//   bttnArr[currentRow-1]?.focus()
+//   }
+//   else{
+//   bttnArr[currentRow-1].disabled = true
+//   }
+
+// }
+
+var doInput1 = (event: Event) => captureInputHandler(event, wordArr, buttons, currentRow, 0)
+var doInput2 = (event: Event) => captureInputHandler(event, wordArr, buttons, currentRow, 1)
+var doInput3 = (event: Event) => captureInputHandler(event, wordArr, buttons, currentRow, 2)
+var doInput4 = (event: Event) => captureInputHandler(event, wordArr, buttons, currentRow, 3)
+var doInput5 = (event: Event) => captureInputHandler(event, wordArr, buttons, currentRow, 4)
+
+
+
+wordArr[0]?.addEventListener('input', doInput1)
+wordArr[1]?.addEventListener('input', doInput2)
+wordArr[2]?.addEventListener('input', doInput3)
+wordArr[3]?.addEventListener('input', doInput4)
+wordArr[4]?.addEventListener('input', doInput5)
+
+
+
+
 
 // captureInput(wordArr, buttons, currentRow, 0)
 // captureInput(wordArr, buttons, currentRow, 1)
@@ -189,12 +229,25 @@ multiBackspace(wordArr, buttons, currentRow, 0)
 // wordArr[4]?.addEventListener('input', handler5)
 
 
-if(!tryButton1 || !tryButton2 || !tryButton3 || !tryButton4 || !tryButton5){
-  throw new Error('I am trying to avoid null???');
-  }
+
+var doAttempt1 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, currentRow)
+var doAttempt2 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, currentRow+1)
+var doAttempt3 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, currentRow+2)
+var doAttempt4 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, currentRow+3)
+var doAttempt5 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, currentRow+4)
+var doAttempt6 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, currentRow+5)
+
+buttons[currentRow-1]?.addEventListener('click', doAttempt1)
+buttons[currentRow]?.addEventListener('click', doAttempt2)
+buttons[currentRow+1]?.addEventListener('click', doAttempt3)
+buttons[currentRow+2]?.addEventListener('click', doAttempt4)
+buttons[currentRow+3]?.addEventListener('click', doAttempt5)
+buttons[currentRow+4]?.addEventListener('click', doAttempt6)
 
 
-allAttempts(wordArr, buttons, mystery, 1)
+// allAttempts(wordArr, buttons, mystery)
+
+playAgain(wordArr, buttons, mystery )
 
 
 
