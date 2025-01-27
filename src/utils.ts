@@ -1,5 +1,6 @@
 import {multiBackspace, multiCaptureInput} from './backspace.ts' 
 import data from './../words.json'
+import {mysteryGen} from './main.ts'
 
 
 const wordList = data.wordBank
@@ -8,8 +9,9 @@ const wordList = data.wordBank
 
 
 export function captureInputHandler (event: Event, arr: Array<any>, bttnArr : Array<any>, currentRow: number, n: number, p=n+1) {
-    console.log(event)
-    if (arr[n]) {arr[n].value = arr[n].value.toUpperCase()
+    console.log(arr)
+    console.log(arr[n].value, 'look here')
+    if (arr[n].value) {arr[n].value = arr[n].value.toUpperCase()
         arr[p]?.focus()
       }
       if(arr[n]?.value == ''){
@@ -27,19 +29,12 @@ export function captureInputHandler (event: Event, arr: Array<any>, bttnArr : Ar
 }
 
 
-
-// export function backspaceHandler(event: Event, arr: Array<any>, bttnArr: Array<any>, currentRow: number, n: number, p: number = n - 1 ){
-//   console.log(event)
-//   if(oninput.key === 'Backspace' && arr[n]?.value == ''){
-//     arr[p]?.focus()
-//     }
-// })
-// }
-
 export function attemptHandler (event: Event,arr: Array<any>, bttnArr: Array<any>, word: string, currentRow: number) {
   console.log(event)
-  let l1 = arr[0].value
-  console.log(l1, 'here')
+  console.log(arr, 'hiiiii')
+  console.log(currentRow, 'rowwww')
+  let l1 = arr[0]?.value
+  console.log(arr[0]?.value, 'here')
   let l2 = arr[1]?.value
   let l3 = arr[2]?.value
   let l4 = arr[3]?.value
@@ -50,9 +45,9 @@ export function attemptHandler (event: Event,arr: Array<any>, bttnArr: Array<any
   }
   
   let guess = l1 + l2 + l3 + l4 + l5
-  console.log(guess.toLowerCase())
+  console.log(guess.toLowerCase(), 'players guess')
   let mysArr = word.split('')
-  console.log(wordList)
+  console.log(mysArr, 'the worddd to guess')
   if (wordList.includes(guess.toLowerCase())){
 
     for(let i = 0; i < arr.length; i++){
@@ -78,7 +73,9 @@ export function attemptHandler (event: Event,arr: Array<any>, bttnArr: Array<any
         throw new Error('I am trying to avoid null???');
     }
 
-    if(word != guess && currentRow < 6){
+    console.log(word)
+
+    if(word !== guess && currentRow < 6){
         console.log(currentRow, 'before increment')
         currentRow += 1
         console.log(currentRow, 'after increment')
@@ -87,17 +84,26 @@ export function attemptHandler (event: Event,arr: Array<any>, bttnArr: Array<any
             arr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
             arr[k-1].disabled = false
         }
+        lossPopup.style.display = 'none'
+        winPopup.style.display = 'none'
         multiCaptureInput(arr, bttnArr, currentRow, 0)
         multiBackspace(arr, bttnArr, currentRow, 0)
 
         arr[0]?.focus()
         }
-    else if (word != guess && currentRow == 6){
+    else if (word !== guess && currentRow === 6){
+        mysteryGen()
+        currentRow = 1
         wordReveal.innerText = word
         lossPopup.style.display = 'flex'
-
+        winPopup.style.display = 'none'
     }
-    else if (word == guess){
+    else if (word === guess){
+        mysteryGen()
+        console.log(word)
+        console.log(guess)
+        currentRow = 1
+        lossPopup.style.display = 'none'
         winPopup.style.display = 'flex'
         let allBoxes = document.querySelectorAll<HTMLInputElement>('.inputBox')
         for(let i = 0; i < allBoxes.length; i++){
@@ -118,3 +124,5 @@ export function attemptHandler (event: Event,arr: Array<any>, bttnArr: Array<any
 
   }
 }
+
+

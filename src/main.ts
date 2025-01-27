@@ -23,7 +23,13 @@ const wordArr = [letter1, letter2, letter3, letter4, letter5]
 
 const wordList = data.wordBank
 
-let mystery = wordList[randomInt(wordList.length)].toUpperCase()
+let mystery = ''
+
+export function mysteryGen (){
+  mystery = wordList[randomInt(wordList.length)].toUpperCase()
+}
+mysteryGen()
+
 
 if (!letter1 || !letter2 || !letter3 || !letter4 || !letter5){
   throw new Error('I am trying to avoid null???');
@@ -40,7 +46,6 @@ var doInput4 = (event: Event) => captureInputHandler(event, wordArr, buttons, cu
 var doInput5 = (event: Event) => captureInputHandler(event, wordArr, buttons, currentRow, 4)
 
 
-
 wordArr[0]?.addEventListener('input', doInput1)
 wordArr[1]?.addEventListener('input', doInput2)
 wordArr[2]?.addEventListener('input', doInput3)
@@ -49,19 +54,19 @@ wordArr[4]?.addEventListener('input', doInput5)
 
 multiBackspace(wordArr, buttons, currentRow, 0)
 
-var doAttempt1 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, currentRow)
-var doAttempt2 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, currentRow+1)
-var doAttempt3 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, currentRow+2)
-var doAttempt4 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, currentRow+3)
-var doAttempt5 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, currentRow+4)
-var doAttempt6 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, currentRow+5)
+var doAttempt1 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, 1)
+var doAttempt2 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, 2)
+var doAttempt3 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, 3)
+var doAttempt4 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, 4)
+var doAttempt5 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, 5)
+var doAttempt6 = (event: Event) => attemptHandler(event, wordArr, buttons, mystery, 6)
 
-buttons[currentRow-1]?.addEventListener('click', doAttempt1)
-buttons[currentRow]?.addEventListener('click', doAttempt2)
-buttons[currentRow+1]?.addEventListener('click', doAttempt3)
-buttons[currentRow+2]?.addEventListener('click', doAttempt4)
-buttons[currentRow+3]?.addEventListener('click', doAttempt5)
-buttons[currentRow+4]?.addEventListener('click', doAttempt6)
+buttons[0]?.addEventListener('click', doAttempt1, true)
+buttons[1]?.addEventListener('click', doAttempt2, true)
+buttons[2]?.addEventListener('click', doAttempt3, true)
+buttons[3]?.addEventListener('click', doAttempt4, true)
+buttons[4]?.addEventListener('click', doAttempt5, true)
+buttons[5]?.addEventListener('click', doAttempt6, true)
 
 
 playAgain(wordArr, buttons, mystery)

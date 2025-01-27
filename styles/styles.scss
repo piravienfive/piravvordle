@@ -1,15 +1,5 @@
-// $breakpoints: (phone: 640px, 
-//                desktop: 1024px) !default;
-
-
-
-
 body{
     background-color: #C1E1C1;
-    @media only screen and (max-width: 640px) {
-        height: 20%;
-        border-bottom: 5000px;
-}
 }
 
 .container{
@@ -18,7 +8,11 @@ body{
 .pageTitle {
     text-align: center;
     font-size: 80px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    @media only screen and (max-width: 640px) {
+        font-size: 60px;
+}
 }
 
 .inputBox{
