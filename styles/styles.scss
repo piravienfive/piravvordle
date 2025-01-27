@@ -63,7 +63,7 @@ button{
     border: solid 5px darkgreen;
     width: 45%;
     margin: 0% 27.5% 0% 27.5%;
-    display: none;
+    display: flex;
     height: 450px;
     z-index: 99;
     position: absolute;
@@ -121,6 +121,7 @@ button{
     left: 31%;
     position: absolute;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: gold;
 
     @media only screen and (max-width: 640px) {
 		font-size: 60px;
