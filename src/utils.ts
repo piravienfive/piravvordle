@@ -96,19 +96,22 @@ export function attemptHandler (event: Event,arr: Array<any>, bttnArr: Array<any
         currentRow = 1
         wordReveal.innerText = word
         lossPopup.style.display = 'flex'
+        document.querySelector<HTMLButtonElement>('.play-again-loss')?.focus()
         winPopup.style.display = 'none'
     }
     else if (word === guess){
         mysteryGen()
-        console.log(word)
-        console.log(guess)
+        console.log(word ,'123')
+        console.log(guess,'123')
         currentRow = 1
         lossPopup.style.display = 'none'
         winPopup.style.display = 'flex'
+        document.querySelector<HTMLButtonElement>('.play-again-win')?.focus()
         let allBoxes = document.querySelectorAll<HTMLInputElement>('.inputBox')
         for(let i = 0; i < allBoxes.length; i++){
           allBoxes[i].disabled = true
-      }
+          
+        }
 
         }
 
