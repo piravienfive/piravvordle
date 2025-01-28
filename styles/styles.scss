@@ -68,6 +68,7 @@ button{
     z-index: 99;
     position: absolute;
     background-image: url(../img/img2.jpg);
+    background-size: contain;
     top: 25%;
     left: 0%;
     background-color: green;
@@ -96,7 +97,7 @@ button{
     @media only screen and (max-width: 640px) {
 		font-size: 40px;
         top: -15%;
-        left: 15%;
+        left: 13%;
 	}
 }
 
@@ -111,7 +112,7 @@ button{
     @media only screen and (max-width: 640px) {
 		font-size: 30px;
         top: 25%;
-        left: 25%;
+        left: 22%;
 	}
 }
 
