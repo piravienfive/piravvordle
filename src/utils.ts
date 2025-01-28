@@ -108,8 +108,8 @@ export function attemptHandler (event: Event,arr: Array<any>, bttnArr: Array<any
             throw new Error('Object could be null');
         }
         
-        pic1.style.backgroundImage =  'url(../img/' + images[Math.floor(Math.random() * images.length)] + ')';
-        pic2.style.backgroundImage = 'url(../img/' + images[Math.floor(Math.random() * images.length)] + ')';
+        pic1.style.backgroundImage =  'url(./img/' + images[Math.floor(Math.random() * images.length)] + ')';
+        pic2.style.backgroundImage = 'url(./img/' + images[Math.floor(Math.random() * images.length)] + ')';
     }
     else if (word === guess){
         bttnArr[currentRow-1].disabled = true
