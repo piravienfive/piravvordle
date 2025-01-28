@@ -77,9 +77,9 @@ export function attemptHandler (event: Event,arr: Array<any>, bttnArr: Array<any
 
     if(word !== guess && currentRow < 6){
         console.log(currentRow, 'before increment')
+        bttnArr[currentRow-1].disabled = true
         currentRow += 1
         console.log(currentRow, 'after increment')
-        bttnArr[currentRow-1].disabled = true
         for(let k = 1; k <= arr.length; k++){
             arr[k-1] = document.querySelector<HTMLInputElement>(`#b${currentRow}-${k}`)
             arr[k-1].disabled = false
@@ -92,6 +92,7 @@ export function attemptHandler (event: Event,arr: Array<any>, bttnArr: Array<any
         arr[0]?.focus()
         }
     else if (word !== guess && currentRow === 6){
+        bttnArr[currentRow-1].disabled = true
         mysteryGen()
         currentRow = 1
         wordReveal.innerText = word
@@ -100,6 +101,7 @@ export function attemptHandler (event: Event,arr: Array<any>, bttnArr: Array<any
         winPopup.style.display = 'none'
     }
     else if (word === guess){
+        bttnArr[currentRow-1].disabled = true
         mysteryGen()
         console.log(word ,'123')
         console.log(guess,'123')
