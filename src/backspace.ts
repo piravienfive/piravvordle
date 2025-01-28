@@ -161,6 +161,7 @@ export function playAgain (arr: Array<any>, bttnArr: Array<any>, word: string, o
         let currentRow = 1
         word = options[randomInt(options.length)].toUpperCase()
 
+
         multiCaptureInput(arr, bttnArr, currentRow, 0)
         multiBackspace(arr, bttnArr, currentRow, 0)
         attempt(arr, bttnArr, word, currentRow)

@@ -67,7 +67,7 @@ button{
     height: 450px;
     z-index: 99;
     position: absolute;
-    background-image: url(../img/img2.jpg);
+    background-image: none;
     background-size: contain;
     top: 25%;
     left: 0%;
@@ -144,7 +144,7 @@ button{
         top: 25%;
         left: 0%;
         background-color: red;
-        background-image: url(../img/img1.jpg);
+        background-image: none;
         background-size: contain;
         opacity: 75%;
         vertical-align: top;
