@@ -99,17 +99,6 @@ export function attemptHandler (event: Event,arr: Array<any>, bttnArr: Array<any
         lossPopup.style.display = 'flex'
         document.querySelector<HTMLButtonElement>('.play-again-loss')?.focus()
         winPopup.style.display = 'none'
-        let images = ['img1.jpg', 'img2.jpg', 'img3jpg', 'img4.jpg', 'img6.jpg', 'img7.jpg', 'img8.jpg', 'img9.jpg', 'img10.jpg', 'img11.jpg', 'img12.jpg', 'img13.jpg'];
-
-        let pic1 = document.querySelector<HTMLDivElement>('.lossPop')
-        let pic2 = document.querySelector<HTMLDivElement>('.winPop')
-
-        if (!pic1 || !pic2){
-            throw new Error('Object could be null');
-        }
-        
-        pic1.style.backgroundImage =  'url(./img/' + images[Math.floor(Math.random() * images.length)] + ')';
-        pic2.style.backgroundImage = 'url(./img/' + images[Math.floor(Math.random() * images.length)] + ')';
     }
     else if (word === guess){
         bttnArr[currentRow-1].disabled = true
