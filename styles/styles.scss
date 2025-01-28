@@ -93,9 +93,9 @@ button{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
     @media only screen and (max-width: 640px) {
-		font-size: 50px;
-        top: -30%;
-        left: 10%;
+		font-size: 40px;
+        top: -15%;
+        left: 18%;
 	}
 }
 
@@ -108,9 +108,9 @@ button{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
     @media only screen and (max-width: 640px) {
-		font-size: 40px;
-        top: 20%;
-        left: 15%;
+		font-size: 30px;
+        top: 25%;
+        left: 25%;
 	}
 }
 
@@ -135,7 +135,7 @@ button{
         border: solid 5px darkgreen;
         width: 45%;
         margin: 0% 27.5% 0% 27.5%;
-        display: none;
+        display: flex;
         height: 450px;
         z-index: 99;
         position: absolute;
@@ -164,9 +164,9 @@ button{
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
         @media only screen and (max-width: 640px) {
-            font-size: 50px;
-            top: -30%;
-            left: 10%;
+            font-size: 45px;
+            top: -25%;
+            left: 13%;
         }
     }
 
@@ -184,11 +184,11 @@ button{
     cursor: click;
 
     @media only screen and (max-width: 640px) {
-        top: 75%;
+        top: 70%;
         left: 35%;
         width: 30%;
         height: 22%;
-        font-size: 16px;
+        font-size: 10px;
 	}
     }
 
@@ -209,7 +209,7 @@ button{
             left: 35%;
             width: 30%;
             height: 20%;
-            font-size: 16px;
+            font-size: 13px;
         }
         }
     }
@@ -238,7 +238,7 @@ button{
         width: 45%;
         margin: 0% 27.5% 0% 27.5%;
         height: 30px;
-        top: 18%;
+        top: 10%;
         left: 0%;
     }
 
@@ -251,9 +251,9 @@ button{
     position: absolute;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     @media only screen and (max-width: 640px) {
-        font-size: 15px;
-        top: -60%;
-        left: 7%;}
+        font-size: 13px;
+        top: -50%;
+        left: 15%;}
 }
 
 
